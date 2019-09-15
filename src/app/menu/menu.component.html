@@ -1,3 +1,6 @@
+ 
+  
+ 
  <div class="container"
  fxLayout="column"
  fxLayoutGap="10px">
@@ -20,16 +23,16 @@
                 </mat-grid-tile>
             </mat-grid-list>
             </div>
-            <div  fxFlex  *ngIf="selectedDish">
+            <div  fxFlex  *ngIf="dish">
                 <mat-card>
                     <mat-card-header>
                        <mat-card-title>
-                           <h3 >{{selectedDish.name | uppercase}}</h3>
+                           <h3 >{{dish.name | uppercase}}</h3>
                        </mat-card-title>
                     </mat-card-header>
-                    <img mat-card-image src={{selectedDish.image}} alt={{selectedDish.name}}>
+                    <img mat-card-image src={{dish.image}} alt={{dish.name}}>
                     <mat-card-content>
-                        <p>{{selectedDish.discription}}</p>
+                        <p>{{dish.discription}}</p>
 
                     </mat-card-content>
                     <mat-card-actions>
@@ -40,7 +43,6 @@
                 </mat-card>
             </div>
 
-             
- 
-
+             <app-dishdetail></app-dishdetail>
+            
 </div>
