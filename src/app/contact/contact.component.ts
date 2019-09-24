@@ -14,12 +14,12 @@ export class ContactComponent implements OnInit {
   feedback: Feedback;
   contactType = ContactType;
 
-  @ViewChild('fform') feedbackFormDirective;
+  @ViewChild('fform',{read: true, static: false})feedbackFormDirective;
 
 
   constructor(private fb: FormBuilder) { 
 
-    this.createForm();
+    this.createForm(); 
   }
 
   ngOnInit() {
@@ -32,7 +32,7 @@ export class ContactComponent implements OnInit {
 
       firstname: ['',Validators.required],
       lastname:  ['',Validators.required],
-      telnum:    ['0',Validators.required],
+      telnum:    ['',Validators.required],
       email:     ['',Validators.required],
       agree: 'false',
       contacttype: 'None',
@@ -50,9 +50,9 @@ export class ContactComponent implements OnInit {
 
     firstname: '',
     lastname: '',
-    telnum: '0',
+    telnum: '',
     email: '',
-    agree: 'false',
+    agree: false,
     contacttype: 'None',
     message: '',
 
