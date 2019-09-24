@@ -20,6 +20,10 @@ fxLayoutGap="10px">
 </mat-card-content>
 </mat-card>
 
+<div fxFlex [hidden]="dish">
+    <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+  </div>
+
 <mat-card *ngIf="promotion" fxFlex>
 <mat-card-header>
 <div mat-card-avatar></div>
@@ -34,6 +38,10 @@ fxLayoutGap="10px">
 </mat-card-content>
 </mat-card>
 
+<div fxFlex [hidden]="promotion">
+    <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+  </div>
+
 
 <mat-card *ngIf="leader" fxFlex>
     <mat-card-header>
@@ -44,10 +52,14 @@ fxLayoutGap="10px">
     </mat-card-header>
     <img mat-card-image src={{leader.image}} alt={{leader.name}}>
     <mat-card-content>
-    <p>{{leader.description}}
-    </p>
+    <p>{{leader.description}}  </p>
+    <p>{{leader.designation}}  </p>
     </mat-card-content>
     </mat-card>
+
+    <div fxFlex [hidden]="leader">
+        <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+      </div>
     
 
 </div>
