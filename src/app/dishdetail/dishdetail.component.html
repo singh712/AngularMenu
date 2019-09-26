@@ -19,10 +19,16 @@ fxLayoutGap.xs="0">
                   </p>
                 </mat-card-content>
                 <mat-card-actions>
+                    <button mat-button [routerLink]="['/dishdetail', prev]"><span class="fa fa-chevron-left fa-lg"></span></button>
                   <button mat-button>LIKE</button>
                   <button mat-button>SHARE</button>
+                  <button mat-button (click)="goBack()">BACK</button>
 
-                <button mat-button (click)="goBack()">BACK</button>
+                  
+
+                
+                <span class="flex-spacer"></span>
+        <button mat-button [routerLink]="['/dishdetail', next]"><span class="fa fa-chevron-right fa-lg"></span></button>
                  </mat-card-actions>
               </mat-card>
  
@@ -33,17 +39,40 @@ fxLayoutGap.xs="0">
 <mat-list>
         <h3>Comments</h3>
           <mat-list-item *ngFor="let comment of dish.comments">
-            <style> .mat-list-item {
-                min-height: 80px;
-            }</style>
-            <p matline>
-            <span>{{comment.comment}}<br></span>
-            <span>{{comment.rating}} Stars<br></span>
-            <span>-- {{comment.author}} {{comment.date | date}}</span>
-            </p>
+            
+            
+            <h4 matLine >{{comment.comment}} </h4>
+            <p matLine>{{comment.rating}} Stars </p>
+            <p matLine> <span>-- {{comment.author}} {{comment.date | date}} </span></p>
+            
         </mat-list-item>
       </mat-list>
 
+      <div class="form-size" *ngIf="dish">
+<form>
+
+    <mat-form-field class="half-width">
+        <input matInput formControlName="first name" placeholder="Name" type="text" required>
+        <mat-error *ngIf= "formErrors.name">{{formErrors.name}}</mat-error>
+l
+      </mat-form-field>
+      <p>    <mat-slider tickInterval="1"  thumbLabel min="1" max="5" step="1" value="1">invert</mat-slider> </p>
+            
+      <p>
+          <mat-form-field class="full-width">
+            <textarea matInput formControlName="message" placeholder="your Feedbacks" rows=6  required> </textarea>
+                                
+          </mat-form-field>
+        </p>
+         
+        <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid"> Submit</button>
+
+</form>
+
+        </div>
+
 </div>
+
+
 
 </div>
